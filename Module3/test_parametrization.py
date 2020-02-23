@@ -14,14 +14,14 @@ from selenium.webdriver.support import expected_conditions as EC
                                   "https://stepik.org/lesson/236903/step/1",
                                   "https://stepik.org/lesson/236904/step/1",
                                   "https://stepik.org/lesson/236905/step/1"])
-def test_parametrization_feedback(driver, link):
+def test_parametrization_feedback(browser, link):
 
     answer = math.log(int(time.time()))
 
-    driver.get(link)
-    textarea = WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".textarea")))
+    browser.get(link)
+    textarea = WebDriverWait(browser, 7).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".textarea")))
     textarea.send_keys(str(answer))
-    driver.find_element(By.CSS_SELECTOR, ".submit-submission").click()
-    message = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".smart-hints__hint")))
+    browser.find_element(By.CSS_SELECTOR, ".submit-submission").click()
+    message = WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".smart-hints__hint")))
     text = message.text
     assert text == "Correct!"
