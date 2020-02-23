@@ -1,18 +1,9 @@
-import pytest
 import time
 import math
-from selenium import webdriver
+import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-@pytest.fixture
-def driver():
-    print("\ncreate driver for test")
-    driver = webdriver.Chrome()
-    yield driver
-    print("\nclose browser after test")
-    driver.quit()
 
 
 @pytest.mark.parametrize("link", ["https://stepik.org/lesson/236895/step/1",
