@@ -6,7 +6,7 @@ import math
 def calc(x):
     return str(math.log(abs(12 * math.sin(int(x)))))
 
-
+# Капча для роботов
 driver = webdriver.Chrome()
 driver.get("http://suninjuly.github.io/math.html")
 x = driver.find_element(By.ID, "input_value").text
